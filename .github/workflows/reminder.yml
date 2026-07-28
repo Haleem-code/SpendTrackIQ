@@ -1,0 +1,30 @@
+name: Weekly Upload Reminder
+
+on:
+  # Run every Monday at 09:00 UTC
+  schedule:
+    - cron: "0 9 * * 1"
+
+  # Allow manual trigger from the Actions tab
+  workflow_dispatch: {}
+
+jobs:
+  send-reminder:
+    name: Check & Send Upload Reminder
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Ping reminder endpoint
+        env:
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          echo "📤 Triggering reminder check..."
+
+          RESPONSE=$(curl -sf -X POST "${API_BASE_URL}/reminder/send" \
+            -H "x-cron-secret: ${CRON_SECRET}" \
+            -H "Content-Type: application/json")
+
+          echo "Response: $RESPONSE"
+          echo "✅ Done."
