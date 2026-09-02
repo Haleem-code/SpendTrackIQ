@@ -1,14 +1,15 @@
-# fly.toml app configuration file generated for haleem-income-tracker on 2026-07-28T13:00:08+01:00
+# fly.toml app configuration file generated for haleem-s-income-tracker on 2026-09-02T15:06:50Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'haleem-income-tracker'
+app = 'haleem-s-income-tracker'
 primary_region = 'jnb'
 
 [build]
+
 [http_service]
-  internal_port = 3001
+  internal_port = 8080
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
