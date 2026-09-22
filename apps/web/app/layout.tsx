@@ -1,10 +1,19 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import NotificationInit from "./notification-init";
 
 export const metadata: Metadata = {
-  title: "Haleem's Income Tracker",
-  description:
-    "Track your yearly income by uploading GTBank & OPay bank statements. View monthly breakdowns, recategorize transactions, and get weekly upload reminders.",
+  title: "SpendTrackIQ",
+  description: "Track your yearly income by uploading GTBank & OPay bank statements.",
+  manifest: "/manifest.json",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0B0C10",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
@@ -21,25 +30,15 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="apple-touch-icon" href="/pwa-icon.jpg" />
       </head>
       <body>
-        <div className="container">
-          <nav className="nav">
-            <div className="nav-brand">
-              <span>💰</span>
-              <span>Haleem&apos;s Income Tracker</span>
-            </div>
-            <div className="nav-links">
-              <a href="/" className="nav-link active" id="nav-dashboard">
-                Dashboard
-              </a>
-              <a href="/upload" className="nav-link" id="nav-upload">
-                Upload
-              </a>
-            </div>
-          </nav>
-          {children}
-        </div>
+        <NotificationInit />
+        {children}
       </body>
     </html>
   );

@@ -2,14 +2,14 @@ FROM oven/bun:1 AS base
 WORKDIR /app
 
 # Copy root package files
-COPY package.json bun.lock ./
+COPY package.json ./
 
 # Copy the shared package and api app
 COPY packages/shared ./packages/shared
 COPY apps/api ./apps/api
 
 # Install dependencies (Bun workspaces will automatically link @haleem/shared to apps/api)
-RUN bun install --frozen-lockfile
+RUN bun install
 
 # Set environment variables
 ENV NODE_ENV=production

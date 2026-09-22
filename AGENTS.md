@@ -4,18 +4,19 @@ This document is the single source of truth for building this project. Any agent
 
 ## 1. What we're building
 
-A personal web + mobile app that tracks Haleem's yearly income by parsing monthly bank statements from **GTBank** and **OPay**, aggregating income totals, and reminding him (via email + WhatsApp) to upload statements weekly/monthly if he hasn't.
+A web + mobile app that tracks users' yearly income by parsing monthly bank statements from **GTBank** and **OPay**, aggregating income totals, and reminding them (via email) to upload statements weekly/monthly if they haven't.
 
-This is a personal-use tool, not a product for other users. Optimize for: zero/near-zero hosting cost, low maintenance, simplicity over scalability.
+Optimize for: low maintenance, simplicity over scalability.
 
 ## 2. Core user flow
 
-1. Haleem exports a bank statement (PDF, sometimes CSV) from GTBank or OPay monthly.
-2. He uploads it to the web app (mobile later).
-3. Backend parses the PDF/CSV into structured transactions.
-4. Transactions are classified as `income`, `expense`, `transfer`, or `uncategorized`.
-5. Dashboard shows yearly total, monthly breakdown, per-bank breakdown, and a list of transactions he can manually recategorize.
-6. If he hasn't uploaded anything in 7+ days, a scheduled job sends a WhatsApp message (primary) and/or email (secondary) reminding him to upload.
+1. A user registers/logs in to the app (JWT based auth).
+2. The user exports a bank statement (PDF, sometimes CSV) from GTBank or OPay monthly.
+3. They upload it to the web app (mobile later).
+4. Backend parses the PDF/CSV into structured transactions.
+5. Transactions are classified as `income`, `expense`, `transfer`, or `uncategorized`.
+6. Dashboard shows yearly total, monthly breakdown, per-bank breakdown, and a list of transactions they can manually recategorize.
+7. If a user hasn't uploaded anything in 7+ days, a scheduled job sends an email reminder.
 
 ## 3. Tech stack
 
@@ -153,11 +154,7 @@ Manual corrections from the UI (`PATCH /transactions/:id`) should be treated as 
 
 ## 12. Explicit non-goals (for now)
 
-- No multi-user support / auth beyond basic personal access control.
 - No live bank API integration (Mono) — deliberately deferred/skipped for cost reasons.
 - No automatic bank credential syncing — everything is manual statement upload by design.
-- No production-grade WhatsApp Business setup initially — sandbox is fine for personal use.
 
-## 13. Naming
-
-App name: **Haleem's Income Tracker** (working title, kept simple since this is a personal tool, not a public product). Repo name: `haleem-income-tracker`.
+App name: **SpendTrackIQ**. Repo name: `haleem-income-tracker`.

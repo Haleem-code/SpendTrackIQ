@@ -17,7 +17,7 @@
     "plugins": [{ "name": "next" }],
     "paths": {
       "@/*": ["./*"],
-      "@haleem/shared": ["../../packages/shared/src/types.ts"]
+      "@spendtrackiq/shared": ["../../packages/shared/src/types.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

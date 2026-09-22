@@ -1,33 +1,39 @@
-// ─── Shared Types — Haleem's Income Tracker ───────────────────────────────────
-
-export type Bank = "gtbank" | "opay";
-
 export type TransactionCategory =
   | "income"
   | "expense"
   | "transfer"
   | "uncategorized";
 
+export interface User {
+  _id?: string;
+  email: string;
+  notificationFrequency?: "weekly" | "monthly" | "none";
+}
+
 export interface Transaction {
   _id?: string;
-  date: string; // ISO 8601
+  userId: string;
+  date: string;
   description: string;
   amount: number;
   type: "credit" | "debit";
-  bank: Bank;
+  bank: string;
   category: TransactionCategory;
+  uploadId?: string;
 }
 
 export interface IncomeSummary {
-  month: number; // 1–12
+  month: number;
   year: number;
-  bank: Bank;
+  bank: string;
   total: number;
 }
 
 export interface UploadRecord {
   _id?: string;
-  bank: Bank;
-  uploadedAt: string; // ISO 8601
+  userId: string;
+  bank: string;
+  uploadedAt: string;
   transactionCount: number;
+  filename?: string;
 }

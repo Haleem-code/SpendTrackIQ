@@ -1,19 +1,20 @@
 {
-  "name": "@haleem/api",
+  "name": "@spendtrackiq/api",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "bun run --hot src/index.ts",
-    "start": "bun run src/index.ts",
+    "dev": "bun --env-file=../../.env run --hot src/index.ts",
+    "start": "bun --env-file=../../.env run src/index.ts",
     "lint": "bunx tsc --noEmit"
   },
   "dependencies": {
-    "elysia": "^1.1.19",
     "@elysiajs/cors": "^1.1.1",
+    "@elysiajs/jwt": "^1.4.2",
     "@elysiajs/swagger": "^1.1.6",
+    "elysia": "^1.1.19",
     "mongoose": "^8.4.1",
-    "resend": "^4.0.0",
-    "pdf-parse": "^1.1.1"
+    "pdf-parse": "^1.1.1",
+    "resend": "^4.0.0"
   },
   "devDependencies": {
     "@types/pdf-parse": "^1.1.4",
