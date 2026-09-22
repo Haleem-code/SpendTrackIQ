@@ -16,6 +16,7 @@ export default function LandingPage() {
     >
       {/* ── NAV ──────────────────────────────── */}
       <nav
+        className="landing-nav"
         style={{
           position: "fixed",
           top: 0,
@@ -73,6 +74,7 @@ export default function LandingPage() {
 
       {/* ── HERO ─────────────────────────────── */}
       <section
+        className="hero-section"
         style={{
           paddingTop: 140,
           paddingBottom: 80,
@@ -107,7 +109,7 @@ export default function LandingPage() {
         />
 
         {/* TEXT CONTENT (LEFT) */}
-        <div style={{ flex: "1 1 400px" }}>
+        <div className="hero-col-left" style={{ flex: "1 1 400px" }}>
           <div
             style={{
               display: "inline-flex",
@@ -236,7 +238,7 @@ export default function LandingPage() {
         </div>
 
         {/* ANIMATED ILLUSTRATION (RIGHT) */}
-        <div style={{ flex: "1.2 1 500px" }}>
+        <div className="hero-col-right" style={{ flex: "1.2 1 500px" }}>
           <div
             style={{
               borderRadius: 14,
@@ -506,6 +508,13 @@ export default function LandingPage() {
             .tx-item:nth-child(2) { animation: slideInTx 6s infinite 0.3s; }
             .tx-item:nth-child(3) { animation: slideInTx 6s infinite 0.5s; }
             .tx-item:nth-child(4) { animation: slideInTx 6s infinite 0.7s; }
+
+            @media (max-width: 768px) {
+              .landing-nav { padding: 0 20px !important; }
+              .hero-section { padding: 100px 20px 60px !important; gap: 40px !important; }
+              .hero-col-left { flex: 1 1 100% !important; }
+              .hero-col-right { display: none !important; }
+            }
           `,
             }}
           />
