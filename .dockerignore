@@ -4,5 +4,5 @@ apps/web
 .github
 .env
 .next
-bun.lock
+
 .AGENTS.md

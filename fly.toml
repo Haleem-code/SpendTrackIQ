@@ -1,12 +1,14 @@
-# fly.toml app configuration file generated for spendtrackiq on 2026-07-28T13:00:08+01:00
+# fly.toml app configuration file generated for spendtrackiq-api on 2026-09-22T18:48:16+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'spendtrackiq'
-primary_region = 'jnb'
+app = 'spendtrackiq-api'
+primary_region = 'lhr'
 
 [build]
+  dockerfile = 'Dockerfile'
+
 [http_service]
   internal_port = 3001
   force_https = true

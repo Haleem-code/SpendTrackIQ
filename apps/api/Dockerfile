@@ -1,7 +1,6 @@
 FROM oven/bun:1 as base
 WORKDIR /usr/src/app
 
-# Copy root workspace manifest and lockfile
 COPY package.json bun.lock ./
 
 # Copy packages and API source
