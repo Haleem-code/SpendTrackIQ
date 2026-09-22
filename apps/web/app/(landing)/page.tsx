@@ -240,6 +240,7 @@ export default function LandingPage() {
         {/* ANIMATED ILLUSTRATION (RIGHT) */}
         <div className="hero-col-right" style={{ flex: "1.2 1 500px" }}>
           <div
+            className="animation-wrapper"
             style={{
               borderRadius: 14,
               overflow: "hidden",
@@ -257,6 +258,7 @@ export default function LandingPage() {
           >
             {/* Main animated container */}
             <div
+              className="animation-container"
               style={{
                 display: "flex",
                 gap: "20px",
@@ -513,7 +515,13 @@ export default function LandingPage() {
               .landing-nav { padding: 0 20px !important; }
               .hero-section { padding: 100px 20px 60px !important; gap: 40px !important; }
               .hero-col-left { flex: 1 1 100% !important; }
-              .hero-col-right { display: none !important; }
+              .hero-col-right { flex: 1 1 100% !important; width: 100% !important; margin-top: 10px; }
+              .animation-wrapper { padding: 20px !important; aspect-ratio: auto !important; min-height: 400px; }
+              .animation-container { flex-direction: column !important; }
+              .upload-box { width: 100% !important; height: 140px !important; }
+              .process-arrow { transform: rotate(90deg) !important; animation: none !important; margin: 10px 0; opacity: 1 !important; }
+              .tx-list { width: 100% !important; }
+              .tx-item { transform: translateX(0) !important; opacity: 1 !important; animation: none !important; }
             }
           `,
             }}
